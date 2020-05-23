@@ -1,0 +1,14 @@
+
+*
+
+!.gitignore
+!.config/*
+!.config/
+!.vimrc
+!.Xresources
+!.Xinitrc
+!scripts/*
+!scripts/
+!.bashrc
+!.bash_profile
+

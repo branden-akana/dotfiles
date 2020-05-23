@@ -1,0 +1,19 @@
+
+URxvt.internalBorder: 40
+URxvt.depth: 32
+
+URxvt*background: Black
+URxvt*foreground: White
+URxvt*geometry: 80x30
+URxvt*scrollBar: false
+
+!-- Xft settings -- !
+Xft.dpi:        96
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.hinting:    true
+Xft.hintstyle:  hintfull
+
+! -- Fonts -- !
+URxvt.font:xft:FantasqueSansMono Nerd Font Mono:size=12
+URxvt.boldfont:xft:FantasqueSansMono Nerd Font Mono:size=12

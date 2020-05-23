@@ -1,0 +1,5 @@
+[Added Associations]
+application/xml=nvim.desktop;
+application/x-shellscript=urxvtc.desktop;urxvt.desktop;
+video/webm=firefox.desktop;
+text/css=gvim.desktop;nvim.desktop;
