@@ -1,0 +1,47 @@
+#! /bin/sh
+
+sxhkd &
+
+#-------------------------------------------------------------------------------
+#   config
+#-------------------------------------------------------------------------------
+
+bspc monitor HDMI-0 -n 0 -d I II III IV V
+bspc monitor DP-4   -n 1 -d VI VII VIII IX X
+
+bspc config border_width         0
+bspc config window_gap          10
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+#-------------------------------------------------------------------------------
+#   rules
+#-------------------------------------------------------------------------------
+
+bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a Chromium desktop='^2'
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+
+#-------------------------------------------------------------------------------
+#   startup
+#-------------------------------------------------------------------------------
+
+$HOME/.config/polybar/launch.sh &
+
+# use picom for window transparency and blurring
+picom -b &
+
+# set wallpaper
+feh --bg-fill $HOME/wallpapers/multi_wp2_0.jpg --bg-fill $HOME/wallpapers/multi_wp2_1.jpg &
+
+# use wal to set terminal colors according to wallpaper
+$HOME/.local/bin/wal -n -R
+
+discord &
+spotify &
+
+disown

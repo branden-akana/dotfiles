@@ -4,9 +4,12 @@
 !.gitignore
 !.config/
 !.config/bspwm/
+!.config/bspwm/*
 !.config/picom.conf
 !.config/nvim/
+!.config/nvim/*
 !.config/sxhkd/
+!.config/sxhkd/*
 !.vimrc
 !.Xresources
 !.Xinitrc
