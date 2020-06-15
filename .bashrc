@@ -8,11 +8,22 @@
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 #----------------------------------------------------------------------------
-#   ssh agent
+#   startup tasks
 #----------------------------------------------------------------------------
+
+# start SSH agent
 
 eval "$(ssh-agent -s)" > /dev/null
 ssh-add ~/.ssh/id_rsa 2> /dev/null
+
+# imports wal colorscheme
+
+(cat ~/.cache/wal/sequences &)
+
+# add bin paths
+
+PATH=$PATH:~/go/bin
+PATH=$PATH:~/scripts
 
 #----------------------------------------------------------------------------
 #   prompt

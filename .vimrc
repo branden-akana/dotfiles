@@ -98,6 +98,8 @@ set hidden " don't unload buffers when closing
 
 set colorcolumn=81 " display line ruler
 
+set scrolloff=10  " show virtual empty lines after EOF
+
 "===============================================================================
 " Tab Settings
 "===============================================================================
@@ -109,16 +111,6 @@ set noexpandtab " use tabs instead of spaces
 "===============================================================================
 " Plugin Settings
 "===============================================================================
-
-let g:wintabs_ui_modified = '*'
-let g:wintabs_ui_sep_leftmost = ' '
-let g:wintabs_ui_sep_rightmost = ' '
-
-let g:wintabs_ui_active_left = '['
-let g:wintabs_ui_active_right = ']'
-
-let g:wintabs_ui_active_vimtab_left = '['
-let g:wintabs_ui_active_vimtab_right = ']'
 
 " Linter Settings
 " ---------------
@@ -152,8 +144,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 "Plug 'tpope/vim-fugitive'
 "Plug 'airblade/vim-gitgutter'
 
-" Show tabs
-Plug 'zefei/vim-wintabs'
 
 " Statusline Plugins
 Plug 'itchyny/lightline.vim'
@@ -176,10 +166,9 @@ Plug 'scrooloose/nerdcommenter' " Comment toggler
 " Autocomplete Plugins
 "Plug 'Valloric/YouCompleteMe'
 "Plug 'ajh17/VimCompletesMe'
-"Plug 'neoclide/coc.nvim', { 'do': { -> coc#util#install() } }
-Plug 'davidhalter/jedi-vim'
-Plug 'xavierd/clang_complete'
-let g:clang_library_path='D:\libs\LLVM\lib'
+Plug 'neoclide/coc.nvim', { 'do': { -> coc#util#install() } }
+"Plug 'davidhalter/jedi-vim'
+"Plug 'xavierd/clang_complete'
 
 " Syntax Plugins
 "Plug 'vim-syntastic/syntastic' " syntax linting
@@ -187,6 +176,8 @@ let g:clang_library_path='D:\libs\LLVM\lib'
 
 Plug 'tmux-plugins/vim-tmux',    { 'for': 'tmux.conf' } " .tmux.conf syntax
 Plug 'sudar/vim-arduino-syntax', { 'for': 'ino' }  " .ino syntax
+Plug 'tikhomirov/vim-glsl' " glsl shader files
+Plug 'vim-python/python-syntax'
 "Plug 'othree/yajs.vim'
 
 Plug 'leafgarland/typescript-vim' " typescript syntax
@@ -201,16 +192,37 @@ Plug 'stevearc/vim-arduino',     { 'for': 'ino' }
 " Colorschemes
 Plug 'ajmwagar/vim-deus'
 Plug 'h3xx/vim-late_evening'
-Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
+Plug 'dylanaraps/wal.vim'
+
+" Show tabs
+Plug 'zefei/vim-wintabs'
 
 " Misc Plugins
 
 "Plug 'szymonmaszke/vimpyter'
 "Plug 'zefei/vim-colortuner', { 'on': 'Colortuner' } " adds color sliders
 
+call plug#end()            " required
+
 " ------------------------------------------------------------------------------
 
-call plug#end()            " required
+let g:wintabs_ui_modified = '*'
+
+"let g:wintabs_ui_active_left = '['
+"let g:wintabs_ui_active_right = ']'
+
+"let g:wintabs_ui_active_vimtab_left = '['
+"let g:wintabs_ui_active_vimtab_right = ']'
+
+let g:wintabs_ui_sep_leftmost = ''
+let g:wintabs_ui_sep_inbetween = ''
+let g:wintabs_ui_sep_rightmost = ''
+
+let g:wintabs_ui_active_vimtab_left = ' '
+let g:wintabs_ui_active_vimtab_right = ' '
+
+let g:wintabs_ui_sep_spaceline = ''
 
 "===============================================================================
 " Syntax Settings
@@ -227,12 +239,36 @@ set nolazyredraw " allegedly makes drawing faster
 set ttyfast
 set regexpengine=1
 
-
 set bg=dark " tells vim to use dark variants of colors
 
+" python-syntax settings
+
+let g:python_highlight_all = 1
+let g:python_highlight_class_vars = 1
+
+" highlighter/colorscheme settings
+
 let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_bold = 0
+let g:gruvbox_italic = 1
 "let g:gruvbox_termcolors=16
-colorscheme gruvbox " syntax theme
+colorscheme wal " syntax theme
+
+" fix italics
+set t_ZH=[3m
+set t_ZR=[23m
+"let &t_ZH="\e[3m"
+"let &t_ZR="\e[23m"
+
+hi Comment cterm=italic gui=italic
+
+" lightline settings
+" ------------------
+
+let g:lightline = {
+	\ 'colorscheme': 'wal',
+	\ }
+
 
 " harder contrast
 "highlight Normal     guibg='#111314'
@@ -244,6 +280,29 @@ if !exists('g:gui_oni')
 	hi Normal     guibg=NONE ctermbg=NONE
 	hi SignColumn guibg=NONE ctermbg=NONE
 endif
+
+hi NonText ctermfg=8
+
+" omnicomplete menu colors
+" dark gray
+"hi Pmenu ctermbg=236 
+hi Pmenu ctermfg=white ctermbg=0
+
+" tabline colors
+"hi TabLineFill ctermbg=White ctermfg=236  " dark gray
+hi TabLineFill ctermbg=white ctermfg=0
+hi TabLineSel ctermbg=4 ctermfg=7
+
+" cursorline colors
+hi ColorColumn ctermbg=8 ctermfg=NONE
+
+" fix underlines in highlighted lines
+hi cursorLine cterm=NONE gui=NONE
+
+" hack for adding borders around floating windows
+" https://github.com/neovim/neovim/issues/9718#issuecomment-546603628
+
+" wintabs settings
 
 let g:javascript_plugin_jsdoc = 1
 
@@ -375,11 +434,29 @@ nmap <leader>f :TagbarToggle<CR>
 nmap <silent> <leader>e :call FocusOnTree()<cr>
 nmap <leader>t :bel split <bar> resize 16 <bar> terminal<CR>i
 
+" Coc.nvim shortcuts
+"-------------------
+
+nnoremap <silent> <c-space> :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+	  if (index(['vim','help'], &filetype) >= 0)
+		      execute 'h '.expand('<cword>')
+			    else
+					    call CocAction('doHover')
+						  endif
+					  endfunction
+
+
 " close buffers without closing split
 nmap <C-c> :bp\|bd #<CR>
 
 " reload .vimrc without restarting
 nmap <leader>r :so $MYVIMRC<CR>
+
+" Wintabs shortcuts
+nnoremap gb :WintabsNext<CR>
+nnoremap gB :WintabsPrevious<CR>
 
 " faster split navigation
 

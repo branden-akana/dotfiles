@@ -1,5 +1,21 @@
 [Added Associations]
-application/xml=nvim.desktop;
 application/x-shellscript=urxvtc.desktop;urxvt.desktop;
-video/webm=firefox.desktop;
+application/xml=nvim.desktop;
+application/zip=7z.desktop;
+image/png=gimp.desktop;feh.desktop;
 text/css=gvim.desktop;nvim.desktop;
+text/plain=gvim.desktop;nvim.desktop;
+video/webm=vlc.desktop;firefox.desktop;
+image/gif=vlc.desktop;
+image/svg+xml=nvim.desktop;
+font/ttf=org.kde.kfontview.desktop;
+
+[Default Applications]
+application/zip=7z.desktop;
+text/plain=nvim.desktop
+x-scheme-handler/http=firefox.desktop;
+x-scheme-handler/https=firefox.desktop;
+x-scheme-handler/discord-478576776990425110=discord-478576776990425110.desktop
+
+[Removed Associations]
+application/zip=7z.desktop;

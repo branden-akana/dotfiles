@@ -2,13 +2,15 @@
 *
 
 !.gitignore
-!.config/*
 !.config/
+!.config/bspwm/
+!.config/picom.conf
+!.config/nvim/
+!.config/sxhkd/
 !.vimrc
 !.Xresources
 !.Xinitrc
 !scripts/*
-!scripts/
 !.bashrc
 !.bash_profile
 
