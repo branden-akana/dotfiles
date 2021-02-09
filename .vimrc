@@ -62,8 +62,8 @@ set timeoutlen=1000 ttimeoutlen=0
 
 set cmdheight=1 " set height of command line
 
-set showmode
-"set noshowmode  " hide mode display (for lightline)
+"set showmode
+set noshowmode  " hide mode display (for lightline)
 
 set noswapfile
 
@@ -148,7 +148,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Statusline Plugins
 Plug 'itchyny/lightline.vim'
 "Plug 'bling/vim-bufferline'
-"Plug 'mgee/lightline-bufferline'
+Plug 'mengelbrecht/lightline-bufferline'
 "Plug 'vim-airline/vim-airline'
 "Plug 'vim-airline/vim-airline-themes'
 
@@ -190,13 +190,13 @@ Plug 'stevearc/vim-arduino',     { 'for': 'ino' }
 "Plug 'maximbaz/lightline-ale'
 
 " Colorschemes
-Plug 'ajmwagar/vim-deus'
-Plug 'h3xx/vim-late_evening'
-Plug 'gruvbox-community/gruvbox'
+"Plug 'ajmwagar/vim-deus'
+"Plug 'h3xx/vim-late_evening'
+"Plug 'gruvbox-community/gruvbox'
 Plug 'dylanaraps/wal.vim'
 
 " Show tabs
-Plug 'zefei/vim-wintabs'
+"Plug 'zefei/vim-wintabs'
 
 " Misc Plugins
 
@@ -248,9 +248,9 @@ let g:python_highlight_class_vars = 1
 
 " highlighter/colorscheme settings
 
-let g:gruvbox_contrast_dark='hard'
-let g:gruvbox_bold = 0
-let g:gruvbox_italic = 1
+"let g:gruvbox_contrast_dark='hard'
+"let g:gruvbox_bold = 0
+"let g:gruvbox_italic = 1
 "let g:gruvbox_termcolors=16
 colorscheme wal " syntax theme
 
@@ -262,12 +262,6 @@ set t_ZR=[23m
 
 hi Comment cterm=italic gui=italic
 
-" lightline settings
-" ------------------
-
-let g:lightline = {
-	\ 'colorscheme': 'wal',
-	\ }
 
 
 " harder contrast
@@ -326,29 +320,29 @@ filetype plugin indent on    " required
 
 "" Lightline Config {{{
 
-"let g:lightline#bufferline#show_number  = 1
-"let g:lightline#bufferline#shorten_path = 0
-"let g:lightline#bufferline#unnamed      = ''
-"let g:lightline#bufferline#modified     = '*'
+" lightline settings
+" ------------------
 
-"let s:palette = g:lightline#colorscheme#default#palette
+let g:lightline = {}
+let g:lightline.colorscheme = 'wal'
+let g:lightline.tabline =          {'left': [['buffers']], 'right': [['tabs']]}
+let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+let g:lightline.component_type =   {'buffers': 'tabsel'}
+let g:lightline.enable = {'statusline': 1, 'tabline': 1}
 
-"let s:palette.tabline.middle = [ [ '#080808', '#303030', 232, 236 ] ]
+let g:lightline#bufferline#modified = '*'
+let g:lightline#bufferline#unnamed  = '[No Name]'
+let g:lightline#bufferline#shorten_path = 1
+let g:lightline#bufferline#show_number = 1
+let g:lightline#bufferline#min_buffer_count = 0
 
-"unlet s:palette
-
-"let g:lightline                  = {
-		"\ 'colorscheme': 'default',
-		"\ }
-
-"let g:lightline.enable = {
-		"\ 'statusline': 1,
-		"\ 'tabline': 1,
-		"\ }
-
-"let g:lightline.tabline          = {'left': [['buffers']], 'right': [['tabs']]}
-"let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
-"let g:lightline.component_type   = {'buffers': 'tabsel'}
+let s:palette = g:lightline#colorscheme#wal#palette
+let s:palette.tabline.left = [ [ 0, 0, 7, 0 ] ]
+let s:palette.tabline.tabsel = [ [ 0, 0, 0, 1 ] ]
+let s:palette.tabline.middle = [ [ 0, 0, 7, 0 ] ]
+let s:palette.normal.left = [ [ 0, 0, 0, 1 ], [ 0, 0, 0, 2 ] ]
+let s:palette.normal.middle = [ [ 0, 0, 7, 8 ] ]
+unlet s:palette
 
 au FileType qf wincmd J " make split full-width
 
@@ -455,8 +449,10 @@ nmap <C-c> :bp\|bd #<CR>
 nmap <leader>r :so $MYVIMRC<CR>
 
 " Wintabs shortcuts
-nnoremap gb :WintabsNext<CR>
-nnoremap gB :WintabsPrevious<CR>
+"nnoremap gb :WintabsNext<CR>
+"nnoremap gB :WintabsPrevious<CR>
+nnoremap gb :bnext<CR>
+nnoremap gB :bprevious<CR>
 
 " faster split navigation
 
