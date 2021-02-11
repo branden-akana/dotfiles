@@ -37,7 +37,7 @@
 
 # taskbars
 !.config/tint2/
-!.config/tint2/**
+!.config/tint2/tint2rc
 
 # notification centers
 !.config/dunst/
