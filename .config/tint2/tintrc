@@ -1,0 +1,8 @@
+
+# Panel
+panel_items = LTSBC
+
+task_font = Fantasque Sans Mono Regular 11
+
+# Taskbar
+taskbar_name_font = Fantasque Sans Mono Italic 11

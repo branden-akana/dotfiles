@@ -6,9 +6,11 @@ image/png=gimp.desktop;feh.desktop;
 text/css=gvim.desktop;nvim.desktop;
 text/plain=gvim.desktop;nvim.desktop;
 video/webm=vlc.desktop;firefox.desktop;
-image/gif=vlc.desktop;
+image/gif=vlc.desktop;feh.desktop;
 image/svg+xml=nvim.desktop;
 font/ttf=org.kde.kfontview.desktop;
+application/vnd.adobe.flash.movie=userapp-ruffle -g vulkan-COU1Y0.desktop;userapp-ruffle-PSFSY0.desktop;
+image/jpeg=feh.desktop;
 
 [Default Applications]
 application/zip=7z.desktop;
@@ -16,6 +18,10 @@ text/plain=nvim.desktop
 x-scheme-handler/http=firefox.desktop;
 x-scheme-handler/https=firefox.desktop;
 x-scheme-handler/discord-478576776990425110=discord-478576776990425110.desktop
+application/vnd.adobe.flash.movie=userapp-ruffle-PSFSY0.desktop
+image/png=feh.desktop
+image/jpeg=feh.desktop
+image/gif=feh.desktop
 
 [Removed Associations]
 application/zip=7z.desktop;

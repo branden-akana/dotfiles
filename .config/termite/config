@@ -1,0 +1,7 @@
+
+[options]
+allow_bold = false
+font = Fantasque Sans Mono Regular 11
+# font = Fixedsys Excelsior 12
+cell_height_scale = 1.8
+cell_width_scale = 1.1

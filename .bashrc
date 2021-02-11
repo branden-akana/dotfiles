@@ -43,5 +43,5 @@ PS1='\n${debian_chroot:+($debian_chroot)}\[\033[07;34m\] \u \[\033[07;39m\] \w \
 #   variables
 #----------------------------------------------------------------------------
 
-export XDG_CONFIG_HOME=~/.config
+#export XDG_CONFIG_HOME=~/.config
 
