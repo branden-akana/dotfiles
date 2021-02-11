@@ -4,23 +4,58 @@
 !.gitignore
 !.vimrc
 !.Xresources
-!.Xinitrc
+!.xinitrc
+!.xbindkeysrc
 !.bashrc
 !.bash_profile
 
-!.config/
-!.config/picom.conf
-!.config/bspwm/
-!.config/bspwm/**
-!.config/sxhkd/
-!.config/sxhkd/**
-!.config/dunst/
-!.config/dunst/**
-!.config/nvim/
-!.config/nvim/**
+#===============================================================================
+# USER SCRIPTS
+#===============================================================================
 
 !scripts/
 !scripts/**
+
+#===============================================================================
+# CONFIGS
+#===============================================================================
+
+!.config/
+
+# compositors
+!.config/picom.conf
+
+# window managers
+!.config/bspwm/
+!.config/bspwm/**
+!.config/openbox/
+!.config/openbox/**
+
+# keybinders
+!.config/sxhkd/
+!.config/sxhkd/**
+
+# taskbars
+!.config/tint2/
+!.config/tint2/**
+
+# notification centers
+!.config/dunst/
+!.config/dunst/**
+
+!.config/thunar/
+!.config/thunar/**
+
+!.config/termite/
+!.config/termite/**
+
+
+!.config/wpg/
+!.config/wpg/templates/
+!.config/wpg/templates/**.base
+
+!.config/nvim/
+!.config/nvim/**
 
 #!issues.md
 
