@@ -1,0 +1,4 @@
+#!/bin/sh
+# spans an image across all desktops
+
+feh --bg-fill --no-xinerama $1

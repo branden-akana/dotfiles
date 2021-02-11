@@ -1,0 +1,4 @@
+#!/bin/sudo sh
+
+windows_title=$(grep -i windows /boot/grub/grub.cfg | cut -d "'" -f2 | head -n 1)
+sudo grub-reboot "$windows_title" && sudo reboot

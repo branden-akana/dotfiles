@@ -1,0 +1,6 @@
+#!/bin/sh
+# captures a region of the screen and copies it to the clipboard
+# similar to SHIFT+WIN+S on windows
+
+maim -s -u -m 10 | xclip -selection clipboard -t image/png -i
+
