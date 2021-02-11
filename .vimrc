@@ -178,6 +178,7 @@ Plug 'tmux-plugins/vim-tmux',    { 'for': 'tmux.conf' } " .tmux.conf syntax
 Plug 'sudar/vim-arduino-syntax', { 'for': 'ino' }  " .ino syntax
 Plug 'tikhomirov/vim-glsl' " glsl shader files
 Plug 'vim-python/python-syntax'
+Plug 'gisphm/vim-gitignore'
 "Plug 'othree/yajs.vim'
 
 Plug 'leafgarland/typescript-vim' " typescript syntax
@@ -337,11 +338,11 @@ let g:lightline#bufferline#show_number = 1
 let g:lightline#bufferline#min_buffer_count = 0
 
 let s:palette = g:lightline#colorscheme#wal#palette
-let s:palette.tabline.left = [ [ 0, 0, 7, 0 ] ]
-let s:palette.tabline.tabsel = [ [ 0, 0, 0, 1 ] ]
-let s:palette.tabline.middle = [ [ 0, 0, 7, 0 ] ]
-let s:palette.normal.left = [ [ 0, 0, 0, 1 ], [ 0, 0, 0, 2 ] ]
-let s:palette.normal.middle = [ [ 0, 0, 7, 8 ] ]
+let s:palette.tabline.left = [ [ 'gray0', 'gray0', 7, 0 ] ]
+let s:palette.tabline.tabsel = [ [ 'gray0', 'gray0', 0, 1 ] ]
+let s:palette.tabline.middle = [ [ 'gray0', 'gray0', 7, 0 ] ]
+let s:palette.normal.left = [ [ 'gray0', 'gray0', 0, 1 ], [ 'gray0', 'gray0', 0, 2 ] ]
+let s:palette.normal.middle = [ [ 'gray0', 'gray0', 7, 8 ] ]
 unlet s:palette
 
 au FileType qf wincmd J " make split full-width
