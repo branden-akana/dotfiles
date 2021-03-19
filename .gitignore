@@ -5,6 +5,7 @@
 !.vimrc
 !.Xresources
 !.xinitrc
+!.xprofile
 !.xbindkeysrc
 !.bashrc
 !.bash_profile
@@ -13,14 +14,15 @@
 # USER SCRIPTS
 #===============================================================================
 
-!scripts/
-!scripts/**
+!bin/
+!bin/**
+bin/**/
+bin/**.so
+bin/**.AppImage
 
 #===============================================================================
 # CONFIGS
 #===============================================================================
-
-!.config/
 
 # compositors
 !.config/picom.conf
