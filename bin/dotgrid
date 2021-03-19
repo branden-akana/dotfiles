@@ -1,0 +1,2 @@
+#!/bin/sh
+chromium --windowed --app --kiosk $(realpath ./.dotgrid/index.html)

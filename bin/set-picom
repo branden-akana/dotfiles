@@ -1,0 +1,25 @@
+#!/bin/sh
+
+toggle_on() {
+	picom &
+}
+
+toggle_off() {
+	"$( pkill -13 picom )"
+}
+
+toggle() {
+	if [[ -z "$( pidof picom )" ]]; then
+		toggle_on
+	else
+		toggle_off
+	fi
+}
+
+if [[ "$1" == "on" ]]; then
+	toggle_on
+elif [[ "$1" == "off" ]]; then
+	toggle_off
+else
+	toggle
+fi

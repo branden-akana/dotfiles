@@ -1,0 +1,5 @@
+#!/bin/sh
+
+gksu insmod ~/bin/gcadapter-oc-kmod/gcadapter_oc.ko rate=1
+gamemoderun ~/bin/Slippi_Online-x86_64.AppImage
+gksu rmmod ~/bin/gcadapter-oc-kmod/gcadapter_oc.ko
