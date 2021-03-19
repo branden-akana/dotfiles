@@ -24,6 +24,8 @@ bin/**.AppImage
 # CONFIGS
 #===============================================================================
 
+!.config/
+
 # compositors
 !.config/picom.conf
 
